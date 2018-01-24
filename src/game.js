@@ -93,7 +93,7 @@ exports.Game = class Game{
                 }else if(this.directon == Direction.south){
                     this.direction = Direction.east;
                 }else{
-                    this.direction = south;
+                    this.direction = Direction.south;
                 }
                 break;
             case "ArrowRight": 
