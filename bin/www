@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('app:server');
 var http = require('http');
+const howler = require('howler');
 const Maze = require("../src/game.js").Maze;
 const Game = require('../src/game.js').Game;
 
