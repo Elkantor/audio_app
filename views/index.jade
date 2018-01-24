@@ -12,23 +12,69 @@ block content
         // Dès que l'utilisateur relâche la touche Ctrl key, la touche n'est plus active.
         // Aussi event.ctrlKey est false.
         //- if (touch_name === 'ArrowUp') {
-            
+
         //- }
         //- if (touch_name === 'ArrowDown') {
-            
+
         //- }
         //- if (touch_name === 'ArrowLeft') {
-            
+
         //- }
         //- if (touch_name === 'ArrowRight') {
-            
+
         //- }
         socket.emit('step', touch_name);
-    }, 
+    },
     false);
 
     socket.on('log', function(message){
         console.log(message);
     });
- 
 
+  script(src="js/howler.core.js")
+  script(src="js/howler.spatial.js")
+  script.
+    var state = 0;
+    var sound1 = new Howl({
+      src: ['samples/Suspens.mp3'],
+      loop: true,
+      volume: 1
+    });
+    var sound2 = new Howl({
+      src: ['samples/Suspens.mp3'],
+      loop: true,
+      volume: 1
+    });
+    sound1.pos(1, 0, 0);
+    sound2.pos(-1, 0, 0);
+    sound1.play();
+    sound2.play();
+
+    function switchSound()
+    {
+      switch(state)
+      {
+        case 0:
+          state=1;
+          sound2.volume(0);
+          break;
+        case 1:
+          state=2;
+          sound2.volume(1);
+          sound1.volume(0);
+          break;
+        case 2:
+          state=3;
+          sound2.volume(0.1);
+          sound1.volume(0.1);
+          break;
+        case 3:
+          state=0;
+          sound2.volume(1);
+          sound1.volume(1);
+          break;
+      }
+      console.log(state);
+    }
+
+  input(type="button" onclick="switchSound();" name="Switch" value="Switch")
