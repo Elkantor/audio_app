@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  script(src="/socket.io/socket.io.js")
+  script.
+    var socket = io.connect('http://localhost:3000');
+    document.addEventListener('keyup', (event) => {
+        const touch_name = event.key;
+
+        // Dès que l'utilisateur relâche la touche Ctrl key, la touche n'est plus active.
+        // Aussi event.ctrlKey est false.
+        //- if (touch_name === 'ArrowUp') {
+            
+        //- }
+        //- if (touch_name === 'ArrowDown') {
+            
+        //- }
+        //- if (touch_name === 'ArrowLeft') {
+            
+        //- }
+        //- if (touch_name === 'ArrowRight') {
+            
+        //- }
+        socket.emit('step', touch_name);
+    }, 
+    false);
+
+    socket.on('log', function(message){
+        console.log(message);
+    });
+ 
+
